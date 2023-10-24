@@ -29,7 +29,7 @@ Y4 = []
 for s in X:
     total_time = 0
 
-    # 3.4.4 Generate 1000 random trees of size s and search for the value 42
+    # 3.3.4 Generate 1000 random trees of size s and search for the value 42
     for i in range(NUMBER_OF_TREES):
         tree = random_tree(s)
         start_time = time.time()
@@ -50,6 +50,7 @@ for s in X:
         end_time = time.time()
         total_time += (end_time - start_time)
     average_time = total_time / NUMBER_OF_TREES
+    #LinkedList search time model
     Y4.append(average_time)
 
 
