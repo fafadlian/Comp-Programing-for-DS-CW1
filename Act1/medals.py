@@ -107,7 +107,9 @@ def print_help():
     print("  C/c (Compare): Compare medals of two countries.")
     print("  Q/q (Quit): Quit the program.")
 
-
+def list_countries_with_more_medals_than_threshold(countries, medal_type, threshold):
+    filtered_countries = [country for country in countries.values() if getattr(country, medal_type) > threshold]
+    return filtered_countries
 
 
 #Program Loop
@@ -130,6 +132,13 @@ if __name__ == '__main__':
         elif user_input in ['q', 'quit']:
             print("Exiting the program.")
             break
+        elif user_input in ['m', 'more']:
+            medal_type = read_medal_type('Insert the medal type (gold, silver, bronze): ')
+            threshold = read_positive_integer('Insert medal threshold: ')
+            filtered_countries = [country for country in data.values() if getattr(country, medal_type) > threshold]
+            print(filtered_countries)
+
         else:
             print("Invalid command. Type 'H' or 'h' for help.")
+
     
